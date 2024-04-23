@@ -298,13 +298,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039729033}
-  m_LocalRotation: {x: 0, y: -0.4913599, z: 0, w: 0.87095666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.6, y: 0.5, z: -27.4}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -58.86, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1039729039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   force: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
-  mass: 1
+  mass: 5.06
   damping: 0.01
   banking: 0.1
   maxSpeed: 5
@@ -373,11 +373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd18ae89d6cd36444b302bd9e139bac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 4
-  frequencyHorizontal: 0.05
-  frequencyVertical: 0.1
-  start_angle: 0
-  base_size: 10
+  length: 10
+  frequency: 5
+  start_angle: 39.11
+  base_size: {x: 1, y: 1, z: 2}
   multiplier: 1
   Boid: {fileID: 270412611550443613, guid: 32ca945a0fe954643adc1b7cca8f7875, type: 3}
 --- !u!1 &1382551197
