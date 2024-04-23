@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -21,6 +22,9 @@ public class creature_generator : MonoBehaviour
     private Boid B;
 
     public GameObject Boid;
+    public GameObject bullet;
+
+    private bool paused = true;
     // Start is called before the first frame update
     void Awake()
     {
@@ -59,18 +63,41 @@ public class creature_generator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && Time.timeScale == 0)
+        if(Input.GetKeyDown(KeyCode.P) && paused)
         {
             Time.timeScale = 1;
+            paused = false;
         }
-        else if(Input.GetKeyDown(KeyCode.P) && Time.timeScale == 1)
+        else if(Input.GetKeyDown(KeyCode.P) && !paused)
         {
             Time.timeScale = 0;
+            paused = true;
         }
+
+        if (!paused)
+        {
+            B.maxSpeed = 1+Mathf.Abs(transform.rotation.z*100);
+            foreach (GameObject bone in SA.bones)
+            {
+                bone.transform.localScale += new Vector3(Mathf.Sin(Time.time)*.001f,Mathf.Sin(Time.time)*.001f,Mathf.Sin(Time.time)*.001f);
+            }
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                Shoot();
+            }
+            
+        }
+        
+        
     }
 
-    void DrawGizmo()
+    void Shoot()
     {
-        print("hi");
+        Instantiate(bullet, transform.position, transform.rotation);
+    }
+
+    private void OnDrawGizmos()
+    {
+        //no clue on how to make this show in editor 
     }
 }
