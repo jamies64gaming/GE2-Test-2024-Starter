@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpineAnimator : MonoBehaviour {
-    public GameObject[] bones;
+    public List<GameObject> bones = new List<GameObject>();
 
     public float bondDamping = 25;
     public float angularBondDamping = 25;
@@ -14,7 +14,7 @@ public class SpineAnimator : MonoBehaviour {
     void Start () {
         if (bones != null)
         {
-            for (int i = 0; i < bones.Length; i++)
+            for (int i = 0; i < bones.Count; i++)
             {
                 GameObject prevBone = (i == 0)
                         ? this.gameObject
@@ -33,7 +33,7 @@ public class SpineAnimator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        for (int i = 0; i < bones.Length; i++)
+        for (int i = 0; i < bones.Count; i++)
         {
             GameObject prevBone = (i == 0)
                 ? this.gameObject
